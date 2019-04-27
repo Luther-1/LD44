@@ -3,7 +3,7 @@
 var length=0;
 for(var i=0;i<array_length_1d(argument0);i++)
 	length+=argument0[i];
-var gap=floor(32/floor(sqrt(length)));
+var gap=floor(Manager.TILE_SIZE/floor(sqrt(length)));
 var cProcess=0;
 var amount=0;
 for(var i =0;i<array_length_1d(argument0);i++)
