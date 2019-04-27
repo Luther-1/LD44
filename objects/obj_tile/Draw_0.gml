@@ -1,6 +1,8 @@
 /// @description draw stuff
 if(sprite_index!=-1)
 	draw_self();
+if(canBeBuilt)
+	drawWarning(x,y);
 if(isBuilt)
 	draw_sprite(tile_draw,0,x,y)
 if(image_draw!=noone)

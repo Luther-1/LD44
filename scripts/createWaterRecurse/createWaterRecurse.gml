@@ -10,6 +10,8 @@ for(var i=0;i<360;i+=90)
 		if(inst!=noone)
 		{
 			moveItemDirection=i;
+			moveItemChild=inst;
+			inst.moveItemParent=self;
 			inst.moveItemDirection=(i+180)%360
 			with(inst)
 			{
