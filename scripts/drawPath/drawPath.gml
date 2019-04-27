@@ -11,15 +11,20 @@ draw_set_colour(c_green);
 for(var i=0;i<array_length_1d(argument0);i++)
 {
 	if(i==0)
+	{
 		dir=point_direction(x,y,argument0[i].x,argument0[i].y);
+		distanceToNextPoint=point_distance(x,y,argument0[i].x,argument0[i].y)
+	}
 	else
 	{
 		lastX=argument0[i-1].x;
 		lastY=argument0[i-1].y;
 		dir=point_direction(argument0[i-1].x,argument0[i-1].y,argument0[i].x,argument0[i].y);
+		distanceToNextPoint=point_distance(argument0[i-1].x,argument0[i-1].y,argument0[i].x,argument0[i].y)
 	}
-	distanceToNextPoint=point_distance(x,y,argument0[i].x,argument0[i].y)
+	
 	draw_line_width(lastX,lastY,argument0[i].x,argument0[i].y,3);
+	draw_circle(argument0[i].x,argument0[i].y,1.5,false);
 	while(distanceToNextPoint>cDist)
 	{
 		posX=lerp(lastX,argument0[i].x,cDist/distanceToNextPoint)

@@ -36,7 +36,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileX!=Manager.horizontalTiles-1)
 		{
 			testTile=getTile(tile.tileX+1,tile.tileY);
-			if(testTile.PATH_VALUE==-1)
+			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -45,7 +45,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileX!=0)
 		{
 			testTile=getTile(tile.tileX-1,tile.tileY);
-			if(testTile.PATH_VALUE==-1)
+			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -54,7 +54,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileY!=Manager.verticalTiles-1)
 		{
 			testTile=getTile(tile.tileX,tile.tileY+1);
-			if(testTile.PATH_VALUE==-1)
+			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -63,7 +63,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileY!=0)
 		{
 			testTile=getTile(tile.tileX,tile.tileY-1);
-			if(testTile.PATH_VALUE==-1)
+			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -78,21 +78,51 @@ while(ds_list_size(openList)!=0 && !found)
 }
 if(!found) //can't reach the tile!
 	return noone;
-/*var direction=-1;
+endTile=getTileLocation(argument2,argument3);
+tile= getTileLocation(argument0,argument1);
+var dir=-1;
 var testDirection=-1;
 var cPos=0;
 var arr=array_create(0,noone);
-var xTile=snapToTile(argument0);
-var yTile=snapToTile(argument1);
-var testValue getTile(xTile,yTile).PATH_VALUE;
-while(getTile(xTile,yTile)!=endTile)
+var testTile=tile;
+while(tile!=endTile)
 {
-	if(getTile(clamp(xTile,0,Manager.horizontalTiles-1),clamp(xTile,0,Manager.horizontalTiles-1)).PATH_VALUE<testValue)
+	//show_message(string(tile.tileX)+", "+string(tile.tileY)+"|||"+string(endTile.tileX)+", "+string(endTile.tileY))
+	dir=testDirection;
+	tile=testTile;
+	testTile=getTile(clamp(tile.tileX-1,0,Manager.horizontalTiles-1),clamp(tile.tileY,0,Manager.verticalTiles-1))
+	if(testTile.PATH_VALUE >=0 && testTile.PATH_VALUE<tile.PATH_VALUE)
 	{
-		
+		testDirection=180;
+		if(dir!=testDirection)
+			arr[cPos++]=tile;
 		continue;
 	}
+	testTile=getTile(clamp(tile.tileX+1,0,Manager.horizontalTiles-1),clamp(tile.tileY,0,Manager.verticalTiles-1))
+	if(testTile.PATH_VALUE >=0 && testTile.PATH_VALUE<tile.PATH_VALUE)
+	{
+		testDirection=0;
+		if(dir!=testDirection)
+			arr[cPos++]=tile;
+		continue;
+	}
+	testTile=getTile(clamp(tile.tileX,0,Manager.horizontalTiles-1),clamp(tile.tileY-1,0,Manager.verticalTiles-1))
+	if(testTile.PATH_VALUE >=0 && testTile.PATH_VALUE<tile.PATH_VALUE)
+	{
+		testDirection=90;
+		if(dir!=testDirection)
+			arr[cPos++]=tile;
+		continue;
+	}
+	testTile=getTile(clamp(tile.tileX,0,Manager.horizontalTiles-1),clamp(tile.tileY+1,0,Manager.verticalTiles-1))
+	if(testTile.PATH_VALUE >=0 && testTile.PATH_VALUE<tile.PATH_VALUE)
+	{
+		testDirection=270;
+		if(dir!=testDirection)
+			arr[cPos++]=tile;
+		continue;
+	}
+	
 }
-*/
-arr[0]=getTileLocation(snapToTile(argument2),snapToTile(argument3))
+arr[cPos++]=tile;
 return arr;
