@@ -10,8 +10,10 @@ spritesBlueprint[0]=test;
 tiles=array_create(room_width/TILE_SIZE,noone) //declare arrays
 for(var i =0;i<array_length_1d(tiles);i++)
 	tiles[i]=array_create(room_height/TILE_SIZE,noone)
+	
 horizontalTiles=array_length_1d(tiles)+1;
 verticalTiles=array_length_1d(tiles[0])+1;
+
 for(var i=0;i<horizontalTiles;i++) //populate arrays
 	for(var l=0;l<verticalTiles;l++)
 	{

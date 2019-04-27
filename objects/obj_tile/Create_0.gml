@@ -9,6 +9,7 @@ tileY=-1;
 heldResources=array_create(0,0)
 isBuilt=false;
 canBeBuilt=false;
+PATH_VALUE=-1;
 
 isPath=false;
 isWarning=false;
