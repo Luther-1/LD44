@@ -11,9 +11,11 @@ if(WantedCsize <1)
 	WantedCsize = 1;
 if(WantedCsize > 2.75)
 	WantedCsize = 2.75;
+WantedCsize=clamp(WantedCsize,0,room_width/camera_size);
+WantedCsize=clamp(WantedCsize,0,room_height/camera_size);
 Csize += (WantedCsize-Csize)/16;
 camera_set_view_size(view_camera[0],camera_size*Csize,camera_size*Csize);
-if(mouse_check_button(mb_left))
+if(mouse_check_button(mb_left) || mouse_check_button(mb_middle))
 {
 	dx=0;
 	dy=0;

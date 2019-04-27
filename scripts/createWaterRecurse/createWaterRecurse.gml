@@ -6,16 +6,16 @@ for(var i=0;i<360;i+=90)
 		continue;
 	else
 	{
-		inst=instance_position(x+cos(degtorad(i))*Manager.TILE_SIZE,y+sin(degtorad(i))*Manager.TILE_SIZE,obj_water)
+		inst=instance_position(x+cos(degtorad(i))*Manager.TILE_SIZE,y-sin(degtorad(i))*Manager.TILE_SIZE,obj_water)
 		if(inst!=noone)
 		{
 			moveItemDirection=i;
-			inst.moveItemDirection=i-180
+			inst.moveItemDirection=(i+180)%360
 			with(inst)
 			{
 				createWaterRecurse(moveItemDirection);
 			}
-			break;
+			return;
 		}
 	}
 	

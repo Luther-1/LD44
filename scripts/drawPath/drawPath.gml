@@ -5,6 +5,8 @@ var dir=0
 var cDist=(get_timer()/100000)%26;
 var lastX=x;
 var lastY=y;
+var posX;
+var posY;
 draw_set_colour(c_green);
 for(var i=0;i<array_length_1d(argument0);i++)
 {
@@ -17,10 +19,13 @@ for(var i=0;i<array_length_1d(argument0);i++)
 		dir=point_direction(argument0[i-1].x,argument0[i-1].y,argument0[i].x,argument0[i].y);
 	}
 	distanceToNextPoint=point_distance(x,y,argument0[i].x,argument0[i].y)
-	draw_line_width(lastX,lastY,argument0[i].x,argument0[i].y,4);
+	draw_line_width(lastX,lastY,argument0[i].x,argument0[i].y,3);
 	while(distanceToNextPoint>cDist)
 	{
-		draw_sprite_ext(spr_arrow,0,lerp(lastX,argument0[i].x,cDist/distanceToNextPoint),lerp(lastY,argument0[i].y,cDist/distanceToNextPoint),1,1,dir,c_white,255);
+		posX=lerp(lastX,argument0[i].x,cDist/distanceToNextPoint)
+		posY=lerp(lastY,argument0[i].y,cDist/distanceToNextPoint)
+		draw_line_width(posX,posY,posX+cos(degtorad(dir-135))*12,posY-sin(degtorad(dir-135))*12,3);
+		draw_line_width(posX,posY,posX+cos(degtorad(dir+135))*12,posY-sin(degtorad(dir+135))*12,3);
 		cDist+=26;
 	}
 	cDist-=distanceToNextPoint;

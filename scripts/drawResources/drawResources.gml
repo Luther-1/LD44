@@ -2,9 +2,8 @@
 ///@param {array} resourcesList
 var length=0;
 for(var i=0;i<array_length_1d(argument0);i++)
-	lengt+=argument0[i];
-var size = floor(sqrt(count))
-var gap=floor(32/size);
+	length+=argument0[i];
+var gap=floor(32/floor(sqrt(length)));
 var cProcess=0;
 var amount=0;
 for(var i =0;i<array_length_1d(argument0);i++)

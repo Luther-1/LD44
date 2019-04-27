@@ -1,9 +1,8 @@
 /// @description VARIABLES
 //THIS CLASS IS MOSTLY STATIC! REFERENCES TO IT SHOULD BE DONE BY OBJECT NOT INSTANCE!!!
-//ex: (Manager.TILE_SIZE), not (instance_find(Manager,0).TILE_SIZE)
+//ex: (Manager.TILE_SIZE), not (instance_find(Manager,0).Manager.TILE_SIZE)
 depth=-100;
-
-TILE_SIZE=32;
+TILE_SIZE=32;;
 
 sprites[0]=test;//DECLARE ALL SPRITES HERE
 spritesBlueprint[0]=test;
@@ -15,4 +14,8 @@ horizontalTiles=array_length_1d(tiles)+1;
 verticalTiles=array_length_1d(tiles[0])+1;
 for(var i=0;i<horizontalTiles;i++) //populate arrays
 	for(var l=0;l<verticalTiles;l++)
+	{
 		tiles[l,i]=instance_create_depth(l*TILE_SIZE,i*TILE_SIZE,50,obj_tile);
+		tiles[l,i].tileX=l;
+		tiles[l,i].tileY=i;
+	}

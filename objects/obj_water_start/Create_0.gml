@@ -1,4 +1,4 @@
 /// @description <description>
 moveItemDirection=-1;
-//createWaterRecurse(moveItemDirection);
+createWaterRecurse(moveItemDirection);
 instance_destroy();
