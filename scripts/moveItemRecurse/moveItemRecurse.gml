@@ -6,4 +6,4 @@ if(moveItemParent!=noone)
 	with(moveItemParent)
 		moveItemRecurse();
 else
-	heldResources=array_create(Manager.RESOURCE_COUNT,0);
+	heldResources=array_create(Manager.RESOURCE_COUNT);
