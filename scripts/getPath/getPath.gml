@@ -36,7 +36,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileX!=Manager.horizontalTiles-1)
 		{
 			testTile=getTile(tile.tileX+1,tile.tileY);
-			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
+			if(testTile.PATH_VALUE==-1 && (testTile==endTile || canBePathed(testTile)))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -45,7 +45,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileX!=0)
 		{
 			testTile=getTile(tile.tileX-1,tile.tileY);
-			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
+			if(testTile.PATH_VALUE==-1 && (testTile==endTile || canBePathed(testTile)))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -54,7 +54,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileY!=Manager.verticalTiles-1)
 		{
 			testTile=getTile(tile.tileX,tile.tileY+1);
-			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
+			if(testTile.PATH_VALUE==-1 && (testTile==endTile || canBePathed(testTile)))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -63,7 +63,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileY!=0)
 		{
 			testTile=getTile(tile.tileX,tile.tileY-1);
-			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
+			if(testTile.PATH_VALUE==-1 && (testTile==endTile || canBePathed(testTile)))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -125,4 +125,6 @@ while(tile!=endTile)
 	
 }
 arr[cPos++]=tile;
-return arr;
+var arr2=array_create(0,0);
+array_copy(arr2,0,arr,1,array_length_1d(arr)-1); //remove first entry
+return arr2;

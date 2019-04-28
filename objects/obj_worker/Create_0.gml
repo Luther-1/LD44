@@ -8,12 +8,18 @@ tileX=x;
 tileY=y;
 goToX=tileX;
 goToY=tileY;
+lastX=x;
+lastY=y;
 target=noone;
 path=noone
 carryingResource=-1;
-targetConfirmed=false;
+targetConfirmed=true;
 eventQueued=false;
 isBuilding=false;
 isIdle=true;
 isSelected=false;
-action=0;//0=move, 1-5 = pick up resource,6=drop , 7=equip, 8=unequp, 9=demolish, 10=build
+objectEquip=noone;
+options=array_create(0,0);
+with(getTileLocation(tileX,tileY))
+	isObstructed=true;
+action=0;//0=move, 1-4 = pick up resource,5=drop , 6=equip, 7=unequp, 8=demolish, 9=build

@@ -4,6 +4,9 @@ with(obj_tile)
 with(obj_interactable)
 	tile.isObstrcuted=tile.isObstructed || isObstruction;
 with(obj_worker)
-	path=getPath(x,y,goToX,goToY);
+{
+	tile =getTileLocation(x,y)
+	tile.isObstructed=true;
+}
 with(all)
 	event_user(0);

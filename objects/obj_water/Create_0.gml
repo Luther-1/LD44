@@ -1,4 +1,5 @@
 /// @description <description>
+event_inherited();
 isPathable=false;
 moveItem=true;
 moveItemDirection=-1;

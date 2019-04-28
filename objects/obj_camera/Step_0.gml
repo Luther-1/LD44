@@ -1,4 +1,4 @@
-/// @description <description>
+/// @description do camera stuff
 if (mouse_wheel_up())
 {
 	WantedCsize -=0.25;

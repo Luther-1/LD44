@@ -1,4 +1,4 @@
-/// @description <description>
+/// @description variables
 dx=0;
 dy=0;
 camera_size=256;
@@ -7,5 +7,4 @@ Csize=1
 lastX=mouse_x;
 lastY=mouse_y;
 size=128;
-view_wport[0]=camera_size;
-view_hport[0]=camera_size;
+camera_set_view_size(view_camera[0],camera_size,camera_size);

@@ -8,7 +8,6 @@ for(var i=0;i<count;i++) //carts and such
 		return true;
 if(argument0.sprite_index==spr_water) //is water and bridge not built
 	return true;
-if(argument0.isBuilt || argument0.canBeBuilt) //for building
+if(argument0.isBuilt || argument0.isBuildable) //for building
 	return true;
 return false;
-		

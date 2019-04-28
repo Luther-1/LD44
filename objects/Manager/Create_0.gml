@@ -1,11 +1,15 @@
 /// @description VARIABLES
 //THIS CLASS IS MOSTLY STATIC! REFERENCES TO IT SHOULD BE DONE BY OBJECT NOT INSTANCE!!!
 //ex: (Manager.TILE_SIZE), not (instance_find(Manager,0).Manager.TILE_SIZE)
+global.selectSpecial=false;
 depth=-100;
 TILE_SIZE=32;
 RESOURCE_COUNT=4;
 
-sprites[0]=test;//DECLARE ALL SPRITES HERE
+sprites[0]=spr_log;//DECLARE ALL SPRITES HERE
+sprites[1]=spr_brick;//DECLARE ALL SPRITES HERE
+sprites[2]=spr_iron;//DECLARE ALL SPRITES HERE
+sprites[3]=spr_stone;//DECLARE ALL SPRITES HERE
 spritesBlueprint[0]=test;
 
 tiles=array_create(room_width/TILE_SIZE,noone) //declare arrays
