@@ -1,8 +1,8 @@
 {
-    "id": "8b01623f-3c37-46e9-ace1-1b2588c84442",
+    "id": "bb5e7fdb-8e28-4271-9477-d605a72800fe",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "createWaterRecurse",
+    "name": "drawRequiredResources",
     "IsCompatibility": false,
     "IsDnD": false
 }
