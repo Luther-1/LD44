@@ -7,4 +7,6 @@ tile.moveItemDirection=moveItemDirection;
 tile.image_index=image_index
 tile.tile_draw=tile_draw;
 tile.image_draw=image_draw
+tile.moveItemChild=moveItemChild;
+tile.moveItemParent=moveItemParent;
 instance_destroy();

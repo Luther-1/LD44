@@ -8,7 +8,9 @@ if(isSelected && mouse_check_button_pressed(mb_right))
 	goToX=snapToTile(mouse_x);
 	goToY=snapToTile(mouse_y);
 	target=getTileLocation(goToX/Manager.TILE_SIZE,goToY/Manager.TILE_SIZE)
+	targetConfirmed=!hasMultipleEvents(target)
 	path=getPath(x,y,goToX,goToY);
 }
 
-isIdle=(path==noone && !isBuilding);
+isIdle=(path==noone && !isBuilding &&!eventQueued);
+//if(!targetConfirmed)

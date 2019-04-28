@@ -11,10 +11,12 @@ tileY=-1;
 heldResources=array_create(0,0)
 isBuilt=false;
 canBeBuilt=false;
+isObstructed=false;
 PATH_VALUE=-1;
 
 isPath=false;
 isWarning=false;
+pathOverride=false; // pathable even if isPathable=false
 
 moveItem=false; //should this tile move items?
 isPathable=true; //can this tile be pathed on?

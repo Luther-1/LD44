@@ -31,12 +31,12 @@ while(ds_list_size(openList)!=0 && !found)
 		tile=ds_list_find_value(openList,0) //get tile
 		ds_list_delete(openList,0) //remove tile
 		len--;
-		if(!tile.isPathable)
+		if(!canBePathed(tile))
 			continue;
 		if(tile.tileX!=Manager.horizontalTiles-1)
 		{
 			testTile=getTile(tile.tileX+1,tile.tileY);
-			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
+			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -45,7 +45,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileX!=0)
 		{
 			testTile=getTile(tile.tileX-1,tile.tileY);
-			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
+			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -54,7 +54,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileY!=Manager.verticalTiles-1)
 		{
 			testTile=getTile(tile.tileX,tile.tileY+1);
-			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
+			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
@@ -63,7 +63,7 @@ while(ds_list_size(openList)!=0 && !found)
 		if(tile.tileY!=0)
 		{
 			testTile=getTile(tile.tileX,tile.tileY-1);
-			if(testTile.PATH_VALUE==-1 && testTile.isPathable)
+			if(testTile.PATH_VALUE==-1 && canBePathed(testTile))
 			{
 				testTile.PATH_VALUE=cost;
 				ds_list_add(openList,testTile);
